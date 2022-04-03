@@ -60,6 +60,13 @@ namespace userManagement_API
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "userManagement_API", Version = "v1" });
             });
+
+            services.AddCors(options =>
+
+                options.AddDefaultPolicy(
+                    builder => builder.AllowAnyOrigin().AllowAnyHeader().WithMethods("DELETE","PUT","GET","POST")
+                    )
+            ) ;
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -75,6 +82,8 @@ namespace userManagement_API
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthentication();
 
