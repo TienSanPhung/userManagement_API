@@ -9,7 +9,7 @@ namespace userManagement_API.Repository
     public interface IBooksRepository : IDisposable
     {
         IEnumerable<Book> GetBooks();
-        Book GetBooksByID(int customerId);
+        Book GetBooksByID(int bookId);
         UserInfo GetUserInfo(string email, string password);
         void InsertBooks(Book book);
         void DeleteBooks(int bookId);
